@@ -21,11 +21,11 @@ SQLALCHEMY_BINDS['paaf']='mysql+pymysql://{}:{}@{}/{}'\
             dbconfig.db_hostname,
             dbconfig.db_name)
 
-SQLALCHEMY_BINDS['iaas']='mysql+pymysql://{}:{}@{}/{}'\
-    .format(dbconfig.db_user,
-            dbconfig.db_password,
-            dbconfig.db_hostname,
-            'iaas')
+# SQLALCHEMY_BINDS['iaas']='mysql+pymysql://{}:{}@{}/{}'\
+#     .format(dbconfig.db_user,
+#             dbconfig.db_password,
+#             dbconfig.db_hostname,
+#             'iaas')
 app.config['SQLALCHEMY_BINDS'] =SQLALCHEMY_BINDS
 
 db = SQLAlchemy(app)

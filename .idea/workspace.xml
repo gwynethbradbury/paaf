@@ -165,7 +165,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>something went</find>
       <find>carousel-example-generic</find>
       <find>carousel-control</find>
       <find>el2</find>
@@ -185,7 +184,6 @@
       <find>i</find>
       <find>it_mon</find>
       <find>asset_type</find>
-      <find>form</find>
       <find>backref</find>
       <find>db_engine\=\'mysql\+pymysql\'\ndb_hostname \= \&quot;localhost\&quot;\ndb_user\=\&quot;root\&quot;\ndb_password\=\&quot;GTG24DDa\&quot;\ntest\=False\ndebug\=True\n\nis_server_version \= False\n\nport\=1445\n\# hostpage\=\'it\-dev\'\nhostpage\=\'0\.0\.0\.0\:\'\+str\(port\)\n\ndb_name \= \&quot;paaf\&quot;\n\ntrigger_reload\=False</find>
       <find>s</find>
@@ -195,6 +193,8 @@
       <find>soc</find>
       <find>socket</find>
       <find>socketio</find>
+      <find>form</find>
+      <find>iaas</find>
     </findStrings>
     <replaceStrings>
       <replace>value_generating_practice</replace>
