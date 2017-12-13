@@ -18,7 +18,7 @@ from werkzeug.wsgi import pop_path_info, extract_path_info, peek_path_info
 
 from paaf import app as application
 
-from paaf.views import socketio
+#from paaf.views import socketio
 
 
 #socketio.run(application,port=4001)
