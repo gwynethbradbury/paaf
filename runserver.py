@@ -1,4 +1,4 @@
 from paaf import app
-import dbconfig
 
-app.run(debug=True,port=4001)
+if __name__ == '__main__':
+    app.run(debug=False,port=4001)
