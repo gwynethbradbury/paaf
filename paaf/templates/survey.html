@@ -1,0 +1,317 @@
+{% extends "base.html" %}
+
+{% block additionalscripts %}
+{% endblock %}
+{% block body %}
+
+
+    <div class="container">
+        <h2>PA Subjective Survey</h2>
+        <p>Use the form below to complete the survey.</p>
+
+        <form action="{{ url_for('survey') }}" method="POST">
+
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="asset-tab" data-toggle="tab" href="#asset" role="tab" aria-controls="asset" aria-selected="true">Assets</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="practice-tab" data-toggle="tab" href="#practice" role="tab" aria-controls="practice" aria-selected="false">Value Generating Practices</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="value-tab" data-toggle="tab" href="#value" role="tab" aria-controls="value" aria-selected="false">Domain Forms of Value</a>
+          </li>
+        </ul>
+        <br/>
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="asset" role="tabpanel" aria-labelledby="asset-tab">
+
+
+
+
+
+
+            {% for f in form.survey.asset_heads() %}
+                <h3>{{ f.name }}</h3>
+                <table >
+                  <col width="500">
+                  <col >
+                  <col >
+                  <col >
+
+                    {% for ff in f.children %}
+
+                        {% if ff.children|length>0 %}
+                            <tr>
+                                <td><b>{{ ff.name }}</b></td><td/>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>Asset Quality</td>
+                                <td>Asset Status</td>
+                                <td>Asset Governance</td>
+                            </tr>
+                            {% for fff in ff.children %}
+                                <tr>
+                                    <td>{{ fff.name }}:</td>
+                                    <td>
+                                        <select class="form-control" name="{{ fff.id }}">
+                                            <option value="-1">Select a rating</option>
+                                            {% for s in qualities %}
+                                                <option value="{{ s.value }}">{{ s.name }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select class="form-control" name="{{ fff.id }}">
+                                            <option value="-1">Select a rating</option>
+                                            {% for s in statuses %}
+                                                <option value="{{ s.value }}">{{ s.name }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select class="form-control" name="{{ fff.id }}">
+                                            <option value="-1">Select a rating</option>
+                                            {% for s in governances %}
+                                                <option value="{{ s.value }}">{{ s.name }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        {% else %}
+
+                            <tr>
+                                <td>{{ ff.name }}:</td>
+                                <td>
+                                    <select class="form-control" name="{{ ff.id }}">
+                                        <option value="-1">Select a rating</option>
+                                        {% for s in qualities %}
+                                            <option value="{{ s.value }}">{{ s.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </td>
+                                <td>
+                                    <select class="form-control" name="{{ ff.id }}">
+                                        <option value="-1">Select a rating</option>
+                                        {% for s in statuses %}
+                                            <option value="{{ s.value }}">{{ s.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </td>
+                                <td>
+                                    <select class="form-control" name="{{ ff.id }}">
+                                        <option value="-1">Select a rating</option>
+                                        {% for s in governances %}
+                                            <option value="{{ s.value }}">{{ s.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </td>
+                            </tr>
+
+                        {% endif %}
+
+                    {% endfor %}
+
+
+                </table>
+            {% endfor %}
+
+
+
+          </div>
+
+
+
+          <div class="tab-pane fade" id="practice" role="tabpanel" aria-labelledby="practice-tab">
+{% for f in form.survey.practice_heads() %}
+                <h3>{{ f.name }}</h3>
+                <table >
+                  <col width="500">
+                  <col >
+                  <col >
+                  <col >
+
+                    {% for ff in f.children %}
+
+                        {% if ff.children|length>0 %}
+                            <tr>
+                                <td><b>{{ ff.name }}</b></td><td/>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>Asset Quality</td>
+                                <td>Asset Status</td>
+                                <td>Asset Governance</td>
+                            </tr>
+                            {% for fff in ff.children %}
+                                <tr>
+                                    <td>{{ fff.name }}:</td>
+                                    <td>
+                                        <select class="form-control" name="{{ fff.id }}">
+                                            <option value="-1">Select a rating</option>
+                                            {% for s in qualities %}
+                                                <option value="{{ s.value }}">{{ s.name }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select class="form-control" name="{{ fff.id }}">
+                                            <option value="-1">Select a rating</option>
+                                            {% for s in statuses %}
+                                                <option value="{{ s.value }}">{{ s.name }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select class="form-control" name="{{ fff.id }}">
+                                            <option value="-1">Select a rating</option>
+                                            {% for s in governances %}
+                                                <option value="{{ s.value }}">{{ s.name }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        {% else %}
+
+                            <tr>
+                                <td>{{ ff.name }}:</td>
+                                <td>
+                                    <select class="form-control" name="{{ ff.id }}">
+                                        <option value="-1">Select a rating</option>
+                                        {% for s in qualities %}
+                                            <option value="{{ s.value }}">{{ s.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </td>
+                                <td>
+                                    <select class="form-control" name="{{ ff.id }}">
+                                        <option value="-1">Select a rating</option>
+                                        {% for s in statuses %}
+                                            <option value="{{ s.value }}">{{ s.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </td>
+                                <td>
+                                    <select class="form-control" name="{{ ff.id }}">
+                                        <option value="-1">Select a rating</option>
+                                        {% for s in governances %}
+                                            <option value="{{ s.value }}">{{ s.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </td>
+                            </tr>
+
+                        {% endif %}
+
+                    {% endfor %}
+
+
+                </table>
+            {% endfor %}
+          </div>
+
+
+
+
+
+
+          <div class="tab-pane fade" id="value" role="tabpanel" aria-labelledby="value-tab">
+              {% for f in form.survey.value_heads() %}
+                <h3>{{ f.name }}</h3>
+                <table >
+                  <col width="500">
+                  <col >
+                  <col >
+                  <col >
+
+                    {% for ff in f.children %}
+
+                        {% if ff.children|length>0 %}
+                            <tr>
+                                <td><b>{{ ff.name }}</b></td><td/>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>Asset Quality</td>
+                                <td>Asset Status</td>
+                                <td>Asset Governance</td>
+                            </tr>
+                            {% for fff in ff.children %}
+                                <tr>
+                                    <td>{{ fff.name }}:</td>
+                                    <td>
+                                        <select class="form-control" name="{{ fff.id }}">
+                                            <option value="-1">Select a rating</option>
+                                            {% for s in qualities %}
+                                                <option value="{{ s.value }}">{{ s.name }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select class="form-control" name="{{ fff.id }}">
+                                            <option value="-1">Select a rating</option>
+                                            {% for s in statuses %}
+                                                <option value="{{ s.value }}">{{ s.name }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select class="form-control" name="{{ fff.id }}">
+                                            <option value="-1">Select a rating</option>
+                                            {% for s in governances %}
+                                                <option value="{{ s.value }}">{{ s.name }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        {% else %}
+
+                            <tr>
+                                <td>{{ ff.name }}:</td>
+                                <td>
+                                    <select class="form-control" name="{{ ff.id }}">
+                                        <option value="-1">Select a rating</option>
+                                        {% for s in qualities %}
+                                            <option value="{{ s.value }}">{{ s.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </td>
+                                <td>
+                                    <select class="form-control" name="{{ ff.id }}">
+                                        <option value="-1">Select a rating</option>
+                                        {% for s in statuses %}
+                                            <option value="{{ s.value }}">{{ s.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </td>
+                                <td>
+                                    <select class="form-control" name="{{ ff.id }}">
+                                        <option value="-1">Select a rating</option>
+                                        {% for s in governances %}
+                                            <option value="{{ s.value }}">{{ s.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </td>
+                            </tr>
+
+                        {% endif %}
+
+                    {% endfor %}
+
+
+                </table>
+            {% endfor %}
+          </div>
+        </div>
+
+
+            {{ form.csrf_token }}
+            <input type="submit" value="Submit" />
+        </form>
+    </div>
+
+{% endblock %}

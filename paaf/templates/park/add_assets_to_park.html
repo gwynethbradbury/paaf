@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block additionalscripts %}
+{% endblock %}
+{% block body %}
+
+
+    <div class="container">
+        <h2>PA Objective Survey</h2>
+        <p>Use the form below to add this PA's existing assets.</p>
+
+        <h3>{{ pa.name }}</h3>
+        <p>{{ pa.description }}</p>
+        <hr/>
+
+        <form action="{{ url_for('add_pa_assets',park_id=pa.id) }}" method="POST">
+
+
+
+
+
+
+
+            {% for f in form.assets %}
+                <h3>{{ f.name }}</h3>
+                <table >
+                  <col width="20px">
+                  <col width="500px">
+                  <col width="500px">
+
+
+                    {% for ff in f.children %}
+
+                        {% if ff.children|length>0 %}
+                            <tr>
+                                <td/><td><b>{{ ff.name }}</b></td><td/>
+                            </tr>
+                            {% for fff in ff.children %}
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" name="{{ fff.id }}" {% if pa.has_asset(fff.id)[0] %}checked{% endif %}>
+                                    </td>
+                                    <td>{{ fff.name }}</td>
+                                    <td>
+                                        <input type="text" name="{{ fff.id }}_desc" {% if pa.has_asset(fff.id)[0] %}value="{{ pa.has_asset(fff.id)[1] }}"{% endif %}>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        {% else %}
+
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="{{ ff.id }}">
+                                </td>
+                                <td>{{ ff.name }}</td>
+                                    <td>
+                                        <input type="text" name="{{ ff.id }}_text">
+                                    </td>
+                            </tr>
+
+                        {% endif %}
+
+                    {% endfor %}
+
+
+                </table>
+            {% endfor %}
+
+
+
+
+
+            {{ form.csrf_token }}
+            <input type="submit" value="Submit" />
+        </form>
+    </div>
+
+{% endblock %}

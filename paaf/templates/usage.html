@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% import 'contents_macros.html' as layout with context -%}
+
+{% block additionalscripts %}
+    {{ layout.googlescripts() }}
+
+{% endblock %}
+{% block body %}
+
+{{ layout.usage() }}
+
+
+{% endblock %}

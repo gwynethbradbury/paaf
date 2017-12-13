@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% import 'contents_macros.html' as layout with context -%}
+
+{% block body %}
+<br/>
+    <div class="container" >
+
+        <div class="row">
+            <div class="col">
+                <h2>SoGE IT News</h2>
+                {{ layout.news(news) }}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

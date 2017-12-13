@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block additionalscripts %}
+{% endblock %}
+{% block body %}
+
+
+    <div class="container">
+        <h2>Add the PA</h2>
+        <p>Use the form below to add a PA to the database.</p>
+
+        <form action="{{ url_for('add_park') }}" method="POST">
+            {{ form.name.label }}:{{ form.name }}<br/>
+            {{ form.description.label }}:{{ form.description}}<br/>
+
+            {{ form.csrf_token }}
+            <input type="submit" value="Submit" />
+        </form>
+    </div>
+
+{% endblock %}
