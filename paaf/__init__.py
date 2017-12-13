@@ -54,7 +54,7 @@ class MyParkAssetView(ModelView):
 admin.add_view(MyParkAssetView(park_asset, db.session))
 
 
-# import views
+import views
 import filters
 import plugin_filters
 import models
