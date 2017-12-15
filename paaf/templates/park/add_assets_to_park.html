@@ -28,9 +28,8 @@
                   <col width="500px">
                   <col width="500px">
 
-
                     {% for ff in f.children %}
-
+{##}
                         {% if ff.children|length>0 %}
                             <tr>
                                 <td/><td><b>{{ ff.name }}</b></td><td/>
@@ -57,9 +56,9 @@
                                         <input type="text" name="{{ ff.id }}_text">
                                     </td>
                             </tr>
-
+{##}
                         {% endif %}
-
+{##}
                     {% endfor %}
 
 

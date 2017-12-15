@@ -23,6 +23,10 @@ def pa(park_id):
     p = park.query.get_or_404(park_id)
     return render_template('park/park.html',park=p)
 
+@app.route('/')
+def home():
+    return render_template('home.html')
+
 @app.route('/add_pa', methods=["GET", "POST"])
 def add_park():
     form = ParkForm()
