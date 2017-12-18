@@ -278,15 +278,15 @@ class park(db.Model):
 # "monkey-patched" because you cannot make self-references within a class definition.
 asset.parent_id = db.Column(db.Integer, db.ForeignKey(asset.id))
 asset.parent = relationship(asset, backref='children',
-                            remote_side=asset.id, lazy="noload" )
+                            remote_side=asset.id, lazy="subquery" )
 
 value_generating_practice.parent_id = db.Column(db.Integer, db.ForeignKey(value_generating_practice.id))
 value_generating_practice.parent = relationship(value_generating_practice, backref='children',
-                                                remote_side=value_generating_practice.id, lazy="noload")
+                                                remote_side=value_generating_practice.id, lazy="subquery")
 
 value_domain.parent_id = db.Column(db.Integer, db.ForeignKey(value_domain.id))
 value_domain.parent = relationship(value_domain, backref='children',
-                                   remote_side=value_domain.id, lazy="noload")
+                                   remote_side=value_domain.id, lazy="subquery")
 
 
 

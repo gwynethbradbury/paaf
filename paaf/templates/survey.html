@@ -38,9 +38,9 @@
                   <col >
                   <col >
 
-                    {% for ff in f.children %}
+                    {% for ff in f.kids() %}
                         {% if pa.has_asset(ff.id) %}
-                            {% if ff.children|length>0 %}
+                            {% if ff.kids()|length>0 %}
 
                                 <tr>
                                     <td><b>{{ ff.name }}</b></td><td/>
@@ -51,7 +51,7 @@
                                     <td>Asset Status</td>
                                     <td>Asset Governance</td>
                                 </tr>
-                                {% for fff in ff.children %}
+                                {% for fff in ff.kids() %}
                                     {% if pa.has_asset(fff.id) %}
                                     <tr>
                                         <td>{{ fff.name }}:</td>
@@ -139,9 +139,9 @@
                   <col >
                   <col >
 
-                    {% for ff in f.children %}
+                    {% for ff in f.kids() %}
                         {% if pa.has_vgp(ff.id) %}
-                            {% if ff.children|length>0 %}
+                            {% if ff.kids()|length>0 %}
 
                                 <tr>
                                     <td><b>{{ ff.name }}</b></td><td/>
@@ -152,7 +152,7 @@
                                     <td>Asset Status</td>
                                     <td>Asset Governance</td>
                                 </tr>
-                                {% for fff in ff.children %}
+                                {% for fff in ff.kids() %}
                                     {% if pa.has_vgp(fff.id) %}
                                     <tr>
                                         <td>{{ fff.name }}:</td>
@@ -241,9 +241,9 @@
                   <col >
                   <col >
 
-                    {% for ff in f.children %}
+                    {% for ff in f.kids() %}
                         {% if pa.has_domains_of_value(ff.id) %}
-                            {% if ff.children|length>0 %}
+                            {% if ff.kids()|length>0 %}
 
                                 <tr>
                                     <td><b>{{ ff.name }}</b></td><td/>
@@ -254,7 +254,7 @@
                                     <td>Asset Status</td>
                                     <td>Asset Governance</td>
                                 </tr>
-                                {% for fff in ff.children %}
+                                {% for fff in ff.kids() %}
                                     {% if pa.has_domains_of_value(fff.id) %}
                                     <tr>
                                         <td>{{ fff.name }}:</td>

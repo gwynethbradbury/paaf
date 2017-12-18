@@ -47,9 +47,9 @@ def add_pa_assets(park_id):
     if request.method == 'POST':
 
         for a in form.assets:#1
-            for aa in a.children:#1.1, 1.2
-                if aa.children.__len__()>0:
-                    for aaa in aa.children:#1.1.1, 1.1.2
+            for aa in a.kids():#1.1, 1.2
+                if aa.kids().__len__()>0:
+                    for aaa in aa.kids():#1.1.1, 1.1.2
                         p = request.form.get('{}'.format(aaa.id))
                         if pa.has_asset(aaa.id):
                             paa = park_asset.query.filter_by(park_id=park_id,asset_id=aaa.id).first()
@@ -77,9 +77,9 @@ def add_pa_assets(park_id):
                         pa_assets.append(park_asset(park_id=park_id,asset_id=aa.id,desc=d))
 
         for a in form.practice_heads:#1
-            for aa in a.children:#1.1, 1.2
-                if aa.children.__len__()>0:
-                    for aaa in aa.children:#1.1.1, 1.1.2
+            for aa in a.kids():#1.1, 1.2
+                if aa.kids().__len__()>0:
+                    for aaa in aa.kids():#1.1.1, 1.1.2
                         p = request.form.get('{}_vgp'.format(aaa.id))
                         if pa.has_vgp(aaa.id):
                             paa = park_domains_of_value.query.filter_by(park_id=park_id,asset_value_domain_id=aaa.id).first()
@@ -107,9 +107,9 @@ def add_pa_assets(park_id):
                         pa_assets.append(park_domains_of_value(park_id=park_id,asset_value_domain_id=aa.id,desc=d))
 
         for a in form.value_heads:#1
-            for aa in a.children:#1.1, 1.2
-                if aa.children.__len__()>0:
-                    for aaa in aa.children:#1.1.1, 1.1.2
+            for aa in a.kids():#1.1, 1.2
+                if aa.kids().__len__()>0:
+                    for aaa in aa.kids():#1.1.1, 1.1.2
                         p = request.form.get('{}_domain'.format(aaa.id))
                         if pa.has_domains_of_value(aaa.id):
                             paa = park_domains_of_value.query.filter_by(park_id=park_id,asset_value_domain_id=aaa.id).first()

@@ -45,11 +45,11 @@
 
                         {% for ff in f.kids() %}
 
-                            {% if ff.children|length>0 %}
+                            {% if ff.kids()|length>0 %}
                                 <tr>
                                     <td/><td><b>{{ ff.name }}</b></td><td/>
                                 </tr>
-                                {% for fff in ff.children %}
+                                {% for fff in ff.kids() %}
                                     <tr>
                                         <td>
                                             <input type="checkbox" name="{{ fff.id }}" {% if pa.has_asset(fff.id) %}checked{% endif %}>
@@ -89,11 +89,11 @@
 
                         {% for ff in f.kids() %}
 
-                            {% if ff.children|length>0 %}
+                            {% if ff.kids()|length>0 %}
                                 <tr>
                                     <td/><td><b>{{ ff.name }}</b></td><td/>
                                 </tr>
-                                {% for fff in ff.children %}
+                                {% for fff in ff.kids() %}
                                     <tr>
                                         <td>
                                             <input type="checkbox" name="{{ fff.id }}_vgp" {% if pa.has_vgp(fff.id) %}checked{% endif %}>
@@ -132,11 +132,11 @@
 
                         {% for ff in f.kids() %}
 
-                            {% if ff.children|length>0 %}
+                            {% if ff.kids()|length>0 %}
                                 <tr>
                                     <td/><td><b>{{ ff.name }}</b></td><td/>
                                 </tr>
-                                {% for fff in ff.children %}
+                                {% for fff in ff.kids() %}
                                     <tr>
                                         <td>
                                             <input type="checkbox" name="{{ fff.id }}_domain" {% if pa.has_domains_of_value(fff.id) %}checked{% endif %}>
