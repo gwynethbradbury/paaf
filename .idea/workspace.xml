@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ff90137-a43d-4582-9ca1-e1f64220ea38" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/paaf/models.py" afterPath="$PROJECT_DIR$/paaf/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/paaf/templates/park/add_assets_to_park.html" afterPath="$PROJECT_DIR$/paaf/templates/park/add_assets_to_park.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/paaf/templates/survey.html" afterPath="$PROJECT_DIR$/paaf/templates/survey.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/paaf/views.py" afterPath="$PROJECT_DIR$/paaf/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -42,16 +38,16 @@
     <splitter split-orientation="horizontal" split-proportion="0.40430623">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+          <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/paaf/models.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="100">
-                  <caret line="129" column="6" lean-forward="false" selection-start-line="129" selection-start-column="6" selection-end-line="129" selection-end-column="6" />
+                <state relative-caret-position="163">
+                  <caret line="147" column="0" lean-forward="false" selection-start-line="147" selection-start-column="0" selection-end-line="147" selection-end-column="0" />
                   <folding>
                     <element signature="e#19#42#0" expanded="true" />
                     <element signature="e#1425#2654#0" expanded="false" />
-                    <element signature="e#6271#6624#0" expanded="false" />
-                    <element signature="e#6679#7053#0" expanded="false" />
+                    <element signature="e#6882#7233#0" expanded="false" />
+                    <element signature="e#7288#7660#0" expanded="false" />
                   </folding>
                 </state>
               </provider>
@@ -91,11 +87,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+          <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/paaf/views.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-381">
-                  <caret line="111" column="40" lean-forward="false" selection-start-line="111" selection-start-column="40" selection-end-line="111" selection-end-column="40" />
+                <state relative-caret-position="163">
+                  <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
                   <folding>
                     <element signature="e#0#103#0" expanded="true" />
                   </folding>
@@ -139,17 +135,17 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="add_assets_to_park.html" pinned="false" current-in-tab="false">
+          <file leaf-file-name="add_assets_to_park.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/paaf/templates/park/add_assets_to_park.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-126">
-                  <caret line="138" column="55" lean-forward="false" selection-start-line="138" selection-start-column="55" selection-end-line="138" selection-end-column="55" />
+                <state relative-caret-position="163">
+                  <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="survey.html" pinned="false" current-in-tab="true">
+          <file leaf-file-name="survey.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/paaf/templates/survey.html">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="-781">
@@ -173,8 +169,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>pa_app</find>
-      <find>paa_app</find>
       <find>paaf_app_</find>
       <find>paaf_app</find>
       <find>i</find>
@@ -201,8 +195,10 @@
       <find>has_domain</find>
       <find>has_asset</find>
       <find>google</find>
-      <find>has</find>
+      <find>.parent</find>
       <find>childre</find>
+      <find>has</find>
+      <find>children</find>
     </findStrings>
     <replaceStrings>
       <replace>value_generating_practice</replace>
@@ -261,11 +257,11 @@
         <option value="$PROJECT_DIR$/paaf/templates/home.html" />
         <option value="$PROJECT_DIR$/paaf/forms.py" />
         <option value="$PROJECT_DIR$/setup_db.py" />
-        <option value="$PROJECT_DIR$/paaf/models.py" />
         <option value="$PROJECT_DIR$/paaf/__init__.py" />
         <option value="$PROJECT_DIR$/paaf/views.py" />
         <option value="$PROJECT_DIR$/paaf/templates/park/add_assets_to_park.html" />
         <option value="$PROJECT_DIR$/paaf/templates/survey.html" />
+        <option value="$PROJECT_DIR$/paaf/models.py" />
       </list>
     </option>
   </component>
@@ -685,8 +681,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/paaf/models.py</url>
-          <line>275</line>
+          <line>285</line>
           <option name="timeStamp" value="88" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/paaf/views.py</url>
+          <line>48</line>
+          <option name="timeStamp" value="121" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/paaf/views.py</url>
+          <line>45</line>
+          <option name="timeStamp" value="122" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -696,7 +702,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="119" />
+      <option name="time" value="123" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
@@ -704,11 +710,12 @@
         <watch expression="aa.children.__len__()" language="Python" />
         <watch expression="request.form.get('{}_vgp'.format(8))" language="Python" />
         <watch expression="request.form.get('{}_vgp'.format(aa.id))" language="Python" />
+        <watch expression="asset.query.filter_by(parent_id=self.id).all()" language="Python" />
+        <watch expression="s.asset_heads()[0].kids()" language="Python" />
       </configuration>
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file:///usr/local/lib/python2.7/site-packages/flask/helpers.py" />
     <entry file="file:///usr/local/Cellar/python/2.7.13/Frameworks/Python.framework/Versions/2.7/lib/python2.7/SocketServer.py" />
     <entry file="file:///usr/local/Cellar/python/2.7.13/Frameworks/Python.framework/Versions/2.7/lib/python2.7/subprocess.py" />
     <entry file="file://$PROJECT_DIR$/it_monitor_app/auth/ldapconfig.py" />
@@ -877,42 +884,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/paaf/models.py">
+    <entry file="file://$PROJECT_DIR$/paaf/templates/survey.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="129" column="6" lean-forward="false" selection-start-line="129" selection-start-column="6" selection-end-line="129" selection-end-column="6" />
-          <folding>
-            <element signature="e#19#42#0" expanded="true" />
-            <element signature="e#1425#2654#0" expanded="false" />
-            <element signature="e#6271#6624#0" expanded="false" />
-            <element signature="e#6679#7053#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="-781">
+          <caret line="256" column="55" lean-forward="false" selection-start-line="256" selection-start-column="55" selection-end-line="256" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/paaf/templates/park/add_assets_to_park.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Python/2.7/site-packages/jinja2/runtime.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="257" column="0" lean-forward="false" selection-start-line="257" selection-start-column="0" selection-end-line="257" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/paaf/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-381">
-          <caret line="111" column="40" lean-forward="false" selection-start-line="111" selection-start-column="40" selection-end-line="111" selection-end-column="40" />
+        <state relative-caret-position="163">
+          <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
           <folding>
             <element signature="e#0#103#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/paaf/templates/park/add_assets_to_park.html">
+    <entry file="file://$PROJECT_DIR$/paaf/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-126">
-          <caret line="138" column="55" lean-forward="false" selection-start-line="138" selection-start-column="55" selection-end-line="138" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/paaf/templates/survey.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-781">
-          <caret line="256" column="55" lean-forward="false" selection-start-line="256" selection-start-column="55" selection-end-line="256" selection-end-column="55" />
-          <folding />
+        <state relative-caret-position="163">
+          <caret line="147" column="0" lean-forward="false" selection-start-line="147" selection-start-column="0" selection-end-line="147" selection-end-column="0" />
+          <folding>
+            <element signature="e#19#42#0" expanded="true" />
+            <element signature="e#1425#2654#0" expanded="false" />
+            <element signature="e#6882#7233#0" expanded="false" />
+            <element signature="e#7288#7660#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

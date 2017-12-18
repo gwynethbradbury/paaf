@@ -133,6 +133,7 @@ class asset(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100))
     description = db.Column(db.Text)
+    parent_id = db.Column(db.Integer, db.ForeignKey('asset.id'))
 
     def __init__(self,name="",description="",parent_id=None):
         self.name=name
@@ -144,7 +145,9 @@ class asset(db.Model):
         return self.name
 
     def kids(self):
-        return self.children
+        return asset.query.filter_by(parent_id=self.id).all()
+    def parent(self):
+        return asset.query.get_or_404(id=self.parent_id)
 
 
 class value_generating_practice(db.Model):
@@ -152,6 +155,7 @@ class value_generating_practice(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100))
     description = db.Column(db.Text)
+    parent_id = db.Column(db.Integer, db.ForeignKey('value_generating_practice.id'))
 
 
     def __init__(self,name="",description="",parent_id=None):
@@ -164,7 +168,9 @@ class value_generating_practice(db.Model):
         return self.name
 
     def kids(self):
-        return self.children
+        return value_generating_practice.query.filter_by(parent_id=self.id).all()
+    def parent(self):
+        return value_generating_practice.query.get_or_404(id=self.parent_id)
 
 
 class value_domain(db.Model):
@@ -172,6 +178,7 @@ class value_domain(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100))
     description = db.Column(db.Text)
+    parent_id = db.Column(db.Integer, db.ForeignKey('value_domain.id'))
 
     def __init__(self,name="",description="",parent_id=None):
         self.name=name
@@ -183,7 +190,10 @@ class value_domain(db.Model):
         return self.name
 
     def kids(self):
-        return self.children
+        return value_domain.query.filter_by(parent_id=self.id).all()
+    def parent(self):
+        return value_domain.query.get_or_404(id=self.parent_id)
+
 
 
 
@@ -209,7 +219,7 @@ class park(db.Model):
             return True
 
         r= False
-        for c in ass.children:
+        for c in ass.kids():
             r = self.has_asset(c.id)
             if r:
                 return True
@@ -223,7 +233,7 @@ class park(db.Model):
             return True
 
         r= False
-        for c in ass.children:
+        for c in ass.kids():
             r = self.has_vgp(c.id)
             if r:
                 return True
@@ -237,7 +247,7 @@ class park(db.Model):
             return True
 
         r= False
-        for c in ass.children:
+        for c in ass.kids():
             r = self.has_domains_of_value(c.id)
             if r:
                 return True
@@ -276,17 +286,17 @@ class park(db.Model):
         return pas
 
 # "monkey-patched" because you cannot make self-references within a class definition.
-asset.parent_id = db.Column(db.Integer, db.ForeignKey(asset.id))
-asset.parent = relationship(asset, backref='children',
-                            remote_side=asset.id, lazy="subquery" )
-
-value_generating_practice.parent_id = db.Column(db.Integer, db.ForeignKey(value_generating_practice.id))
-value_generating_practice.parent = relationship(value_generating_practice, backref='children',
-                                                remote_side=value_generating_practice.id, lazy="subquery")
-
-value_domain.parent_id = db.Column(db.Integer, db.ForeignKey(value_domain.id))
-value_domain.parent = relationship(value_domain, backref='children',
-                                   remote_side=value_domain.id, lazy="subquery")
+# asset.parent_id = db.Column(db.Integer, db.ForeignKey(asset.id))
+# asset.parent = relationship(asset, backref='children',
+#                             remote_side=asset.id, lazy="subquery" )
+#
+# value_generating_practice.parent_id = db.Column(db.Integer, db.ForeignKey(value_generating_practice.id))
+# value_generating_practice.parent = relationship(value_generating_practice, backref='children',
+#                                                 remote_side=value_generating_practice.id, lazy="subquery")
+#
+# value_domain.parent_id = db.Column(db.Integer, db.ForeignKey(value_domain.id))
+# value_domain.parent = relationship(value_domain, backref='children',
+#                                    remote_side=value_domain.id, lazy="subquery")
 
 
 
@@ -296,11 +306,11 @@ class survey():
     options=[]
 
     def asset_heads(self):
-        return asset.query.filter_by(parent=None).all()
+        return asset.query.filter_by(parent_id=None).all()
     def practice_heads(self):
-        return value_generating_practice.query.filter_by(parent=None).all()
+        return value_generating_practice.query.filter_by(parent_id=None).all()
     def value_heads(self):
-        return value_domain.query.filter_by(parent=None).all()
+        return value_domain.query.filter_by(parent_id=None).all()
 
     def restrict(self, options=[]):
         self.options=options
