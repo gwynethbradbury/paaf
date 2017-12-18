@@ -17,59 +17,155 @@
 
 
 
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" id="asset-tab" data-toggle="tab" href="#asset" role="tab" aria-controls="asset" aria-selected="true">Assets</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="practice-tab" data-toggle="tab" href="#practice" role="tab" aria-controls="practice" aria-selected="false">Value Generating Practices</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="value-tab" data-toggle="tab" href="#value" role="tab" aria-controls="value" aria-selected="false">Domain Forms of Value</a>
+              </li>
+            </ul>
+            <br/>
+            <div class="tab-content" id="myTabContent">
+              <div class="tab-pane fade show active" id="asset" role="tabpanel" aria-labelledby="asset-tab">
 
 
 
 
-            {% for f in form.assets %}
-                <h3>{{ f.name }}</h3>
-                <table >
-                  <col width="20px">
-                  <col width="500px">
-                  <col width="500px">
 
-                    {% for ff in f.children %}
-{##}
-                        {% if ff.children|length>0 %}
-                            <tr>
-                                <td/><td><b>{{ ff.name }}</b></td><td/>
-                            </tr>
-                            {% for fff in ff.children %}
+                {% for f in assets %}
+                    <h3>{{ f.name }}</h3>
+                    <table >
+                      <col width="20px">
+                      <col width="500px">
+                      <col width="500px">
+
+                        {% for ff in f.kids() %}
+
+                            {% if ff.children|length>0 %}
+                                <tr>
+                                    <td/><td><b>{{ ff.name }}</b></td><td/>
+                                </tr>
+                                {% for fff in ff.children %}
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox" name="{{ fff.id }}" {% if pa.has_asset(fff.id) %}checked{% endif %}>
+                                        </td>
+                                        <td>{{ fff.name }}</td>
+                                        <td>
+                                            <input type="text" name="{{ fff.id }}_desc" {% if pa.has_asset(fff.id) %}value="{{ pa.asset_desc(fff.id) }}"{% endif %}>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            {% else %}
+
                                 <tr>
                                     <td>
-                                        <input type="checkbox" name="{{ fff.id }}" {% if pa.has_asset(fff.id)[0] %}checked{% endif %}>
+                                        <input type="checkbox" name="{{ ff.id }}" {% if pa.has_asset(ff.id) %}checked{% endif %}>
                                     </td>
-                                    <td>{{ fff.name }}</td>
-                                    <td>
-                                        <input type="text" name="{{ fff.id }}_desc" {% if pa.has_asset(fff.id)[0] %}value="{{ pa.has_asset(fff.id)[1] }}"{% endif %}>
-                                    </td>
+                                    <td>{{ ff.name }}</td>
+                                        <td>
+                                            <input type="text" name="{{ ff.id }}_text"{% if pa.has_asset(ff.id) %}value="{{ pa.asset_desc(ff.id) }}"{% endif %}>
+                                        </td>
                                 </tr>
-                            {% endfor %}
-                        {% else %}
+                            {% endif %}
+                        {% endfor %}
 
-                            <tr>
-                                <td>
-                                    <input type="checkbox" name="{{ ff.id }}">
-                                </td>
-                                <td>{{ ff.name }}</td>
+                    </table>
+                {% endfor %}
+
+              </div>
+
+              <div class="tab-pane fade" id="practice" role="tabpanel" aria-labelledby="practice-tab">
+                  {% for f in practice_heads %}
+                    <h3>{{ f.name }}</h3>
+                    <table >
+                      <col width="20px">
+                      <col width="500px">
+                      <col width="500px">
+
+                        {% for ff in f.kids() %}
+
+                            {% if ff.children|length>0 %}
+                                <tr>
+                                    <td/><td><b>{{ ff.name }}</b></td><td/>
+                                </tr>
+                                {% for fff in ff.children %}
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox" name="{{ fff.id }}_vgp" {% if pa.has_vgp(fff.id) %}checked{% endif %}>
+                                        </td>
+                                        <td>{{ fff.name }}</td>
+                                        <td>
+                                            <input type="text" name="{{ fff.id }}_vgp_desc" {% if pa.has_vgp(fff.id) %}value="{{ pa.vgp_desc(fff.id) }}"{% endif %}>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            {% else %}
+
+                                <tr>
                                     <td>
-                                        <input type="text" name="{{ ff.id }}_text">
+                                        <input type="checkbox" name="{{ ff.id }}_vgp" {% if pa.has_vgp(ff.id) %}checked{% endif %}>
                                     </td>
-                            </tr>
-{##}
-                        {% endif %}
-{##}
-                    {% endfor %}
+                                    <td>{{ ff.name }}</td>
+                                        <td>
+                                            <input type="text" name="{{ ff.id }}_vgp_desc" {% if pa.has_vgp(ff.id) %}value="{{ pa.vgp_desc(ff.id) }}"{% endif %}>
+                                        </td>
+                                </tr>
+                            {% endif %}
+                        {% endfor %}
 
+                    </table>
+                {% endfor %}
+              </div>
 
-                </table>
-            {% endfor %}
+              <div class="tab-pane fade" id="value" role="tabpanel" aria-labelledby="value-tab">
+                {% for f in value_heads %}
+                    <h3>{{ f.name }}</h3>
+                    <table >
+                      <col width="20px">
+                      <col width="500px">
+                      <col width="500px">
 
+                        {% for ff in f.kids() %}
 
+                            {% if ff.children|length>0 %}
+                                <tr>
+                                    <td/><td><b>{{ ff.name }}</b></td><td/>
+                                </tr>
+                                {% for fff in ff.children %}
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox" name="{{ fff.id }}_domain" {% if pa.has_domains_of_value(fff.id) %}checked{% endif %}>
+                                        </td>
+                                        <td>{{ fff.name }}</td>
+                                        <td>
+                                            <input type="text" name="{{ fff.id }}_domain_desc" {% if pa.has_domains_of_value(fff.id) %}value="{{ pa.value_desc(fff.id) }}"{% endif %}>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            {% else %}
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" name="{{ ff.id }}_domain" {% if pa.has_domains_of_value(ff.id) %}checked{% endif %}>
+                                    </td>
+                                    <td>{{ ff.name }}</td>
+                                        <td>
+                                            <input type="text" name="{{ ff.id }}_domain_desc" {% if pa.has_domains_of_value(ff.id) %}value="{{ pa.value_desc(ff.id) }}"{% endif %}>
+                                        </td>
+                                </tr>
+                            {% endif %}
 
+                        {% endfor %}
 
+                    </table>
+                {% endfor %}
+              </div>
+            </div>
 
-            {{ form.csrf_token }}
             <input type="submit" value="Submit" />
         </form>
     </div>

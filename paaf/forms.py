@@ -1,5 +1,5 @@
 # from flask_wtf import Form
-from flask.ext.wtf import Form
+from flask_wtf import FlaskForm as Form
 from wtforms import StringField, PasswordField, SelectField, FieldList, FormField, TextField
 from wtforms.validators import DataRequired, Email
 
@@ -38,6 +38,8 @@ class ParkForm(Form):
 
 class AssetForm(Form):
     assets = survey().asset_heads()
+    practice_heads = survey().practice_heads()
+    value_heads = survey().value_heads()
 
 class SurveyForm(Form):
     survey=survey()
